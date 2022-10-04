@@ -33,6 +33,19 @@ async function listarContatos() {
   tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl);
   });
+
+  let checkboxes = Array.from(
+    document.querySelectorAll(`input[data-tipo=checkbox]`)
+  );
+  checkboxes.forEach((el) =>
+    el.addEventListener("click", () => {
+      if (checkboxes.every((el) => el.checked)) {
+        marcadorTodos.checked = true;
+      } else {
+        marcadorTodos.checked = false;
+      }
+    })
+  );
 }
 
 listarContatos()
