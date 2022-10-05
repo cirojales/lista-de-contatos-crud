@@ -4,7 +4,9 @@ Acesse `https://nodejs.org/`, baixe e instale no seu computador.
 ## Para instalar o json-server
 Execute no terminal o comando `npm install -g json-server`.
 
-Caso ocorra o erro `npm ERR! request to https://registry.npmjs.org/json-server failed, reason: self signed certificate in certificate chain`, use `npm set strict-ssl false`, depois `npm config set registry http://registry.npmjs.org/` e `npm install -g json-server`.
+Caso ocorra o erro `npm ERR! request to https://registry.npmjs.org/json-server failed, reason: self signed certificate in certificate chain`, 
+
+use `npm set strict-ssl false`, depois `npm config set registry http://registry.npmjs.org/` e `npm install -g json-server`.
 
 O json-server é uma biblioteca pra simular um banco de dados com API REST.
 
