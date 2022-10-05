@@ -48,7 +48,7 @@ async function listarContatos() {
   );
 }
 
-listarContatos()
+listarContatos();
 
 function filtrarContatos() {
   let busca = inputBuscar.value;
@@ -98,12 +98,10 @@ async function editarContato() {
     .then((res) => res.json())
     .then(() => listarContatos());
 
-
   let x = document.querySelector('[data-bs-dismiss="offcanvas"]');
 
   x.dispatchEvent(new Event("click"));
 }
-
 
 async function excluirContato(id) {
   if (!confirm("Você confirma a exclusão do contato?")) {
@@ -158,21 +156,16 @@ function mascaraDeTelefone(value) {
 }
 
 function marcarDesmarcarTodos() {
-  let todos = document.querySelectorAll('[data-tipo=checkbox]');
+  let todos = document.querySelectorAll("[data-tipo=checkbox]");
 
   todos.forEach((cadaCheck) => {
     cadaCheck.checked = marcadorTodos.checked;
-
-  })
+  });
 }
 
-function acionarBotaoExcluir() {
-  
-}
+function acionarBotaoExcluir() {}
 
-
-listarContatos()
-
+listarContatos();
 
 function excluirSelecionados() {
   let marcados = Array.from(
@@ -180,10 +173,16 @@ function excluirSelecionados() {
   );
 
   let mensagem = "";
-  if (marcados.length > 1) {
-    mensagem = `${marcados.length} contatos serão excluídos. Deseja prosseguir?`;
-  } else if (marcados.length === 1) {
+
+  if (marcados.length === 1) {
     mensagem = `O contato será excluído. Deseja prosseguir?`;
+  } else if (
+    marcados.length ===
+    document.querySelectorAll(`input[data-tipo=checkbox]`).length
+  ) {
+    mensagem = `Todos os contatos serão excluídos. Deseja prosseguir?`;
+  } else if (marcados.length > 1) {
+    mensagem = `${marcados.length} contatos serão excluídos. Deseja prosseguir?`;
   }
 
   if (!marcados.length) {
@@ -195,7 +194,7 @@ function excluirSelecionados() {
     return;
   }
 
-  marcados.forEach(async marcado => {
+  marcados.forEach(async (marcado) => {
     let res = await fetch(`${URL_API}/contatos/${marcado.value}`, {
       method: "DELETE",
     });
