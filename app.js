@@ -21,10 +21,6 @@ async function listarContatos() {
     `;
   });
 
-  // <button onclick="excluirContato(${contato.id})" type="button" class="btnExcluir d-inline-flex btn btn-danger btn-sm px-2 m-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Excluir contato">
-  //   <span class="material-icons">delete</span>
-  //   </button>
-
   listaDeContatos.innerHTML = stringContatos;
 
   let tooltipTriggerList = [].slice.call(
@@ -123,7 +119,6 @@ async function adicionarContato() {
     telefone: inputTelefone.value,
     cidade: inputCidade.value,
   };
-  console.log(dados);
 
   let res = await fetch(`${URL_API}/contatos`, {
     method: "POST",
@@ -162,8 +157,6 @@ function marcarDesmarcarTodos() {
     cadaCheck.checked = marcadorTodos.checked;
   });
 }
-
-function acionarBotaoExcluir() {}
 
 listarContatos();
 
