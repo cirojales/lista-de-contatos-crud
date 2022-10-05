@@ -29,11 +29,11 @@
             </div>
            </div>
            <div class="col text-end">
-             <button onclick="excluirSelecionados()" type="button" class="d-inline-flex btn btn-danger mb-2">
+             <button onmousedown="event.preventDefault()" onclick="excluirSelecionados()" type="button" class="d-inline-flex btn btn-danger mb-2 p-2">
                <span class="material-icons mx-0">delete</span>
                <span class="mx-1">Excluir</span>
              </button>
-             <button type="button" class="d-inline-flex btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+             <button type="button" class="d-inline-flex btn btn-success mb-2 p-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                <span class="material-icons mx-1">add_circle</span>
                <span class="mx-1">Adicionar</span>
              </button>
